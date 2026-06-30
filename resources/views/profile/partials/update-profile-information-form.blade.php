@@ -24,12 +24,12 @@
                 @if($user->profile_photo)
                     <img class="h-16 w-16 rounded-full object-cover shadow-sm border border-gray-200" src="{{ asset('storage/' . $user->profile_photo) }}" alt="Profile Photo">
                 @else
-                    <div class="h-16 w-16 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 shadow-sm border border-orange-200">
+                    <div class="h-16 w-16 rounded-full bg-kop-light flex items-center justify-center text-kop-green shadow-sm border border-kop-green/20">
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                     </div>
                 @endif
                 <div class="flex-1">
-                    <x-text-input id="profile_photo" name="profile_photo" type="file" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100" accept="image/*" />
+                    <x-text-input id="profile_photo" name="profile_photo" type="file" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-kop-light file:text-kop-green hover:file:bg-kop-green/20 cursor-pointer transition" accept="image/*" />
                 </div>
             </div>
             <x-input-error class="mt-2" :messages="$errors->get('profile_photo')" />
@@ -67,7 +67,19 @@
 
         <div>
             <x-input-label for="bank_name" value="Nama Bank" />
-            <x-text-input id="bank_name" name="bank_name" type="text" class="mt-1 block w-full" :value="old('bank_name', $user->bank_name)" placeholder="Contoh: BCA, Mandiri, BNI" />
+            <select id="bank_name" name="bank_name" class="mt-1 block w-full border-gray-200 text-gray-900 bg-white focus:border-kop-green focus:ring-kop-green rounded-xl shadow-sm px-4 py-3 transition duration-200">
+                <option value="" class="text-black bg-white">Pilih Bank...</option>
+                <option value="BCA" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'BCA' ? 'selected' : '' }}>BCA (Bank Central Asia)</option>
+                <option value="Mandiri" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'Mandiri' ? 'selected' : '' }}>Bank Mandiri</option>
+                <option value="BNI" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'BNI' ? 'selected' : '' }}>BNI (Bank Negara Indonesia)</option>
+                <option value="BRI" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'BRI' ? 'selected' : '' }}>BRI (Bank Rakyat Indonesia)</option>
+                <option value="BSI" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'BSI' ? 'selected' : '' }}>BSI (Bank Syariah Indonesia)</option>
+                <option value="BTN" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'BTN' ? 'selected' : '' }}>BTN (Bank Tabungan Negara)</option>
+                <option value="CIMB Niaga" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'CIMB Niaga' ? 'selected' : '' }}>CIMB Niaga</option>
+                <option value="Danamon" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'Danamon' ? 'selected' : '' }}>Bank Danamon</option>
+                <option value="Permata" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'Permata' ? 'selected' : '' }}>Permata Bank</option>
+                <option value="Lainnya" class="text-black bg-white" {{ old('bank_name', $user->bank_name) == 'Lainnya' ? 'selected' : '' }}>Bank Lainnya</option>
+            </select>
             <x-input-error class="mt-2" :messages="$errors->get('bank_name')" />
         </div>
 

@@ -19,101 +19,104 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-[#f4f7f6] text-gray-800">
-        <div class="flex h-screen overflow-hidden">
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen overflow-hidden relative">
             
+            <!-- Mobile Sidebar Overlay -->
+            <div x-cloak x-show="sidebarOpen" x-transition.opacity class="fixed inset-0 z-20 bg-gray-900/50 backdrop-blur-sm md:hidden" @click="sidebarOpen = false"></div>
+
             <!-- Sidebar -->
-            <aside class="w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 hidden md:flex shadow-sm z-20">
+            <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed md:static inset-y-0 left-0 w-64 bg-kop-blueDark border-r border-white/10 flex flex-col transition-transform duration-300 shadow-xl md:shadow-sm z-30 md:translate-x-0">
                 <!-- Sidebar Header / Logo -->
-                <div class="h-20 flex items-center px-6 border-b border-gray-100">
-                    <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center mr-3 shadow-inner">
-                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="h-20 flex items-center px-6 border-b border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-kop-green flex items-center justify-center mr-3 shadow-inner">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                     <div>
-                        <h1 class="text-sm font-bold text-gray-800 tracking-wide">KOPERASI</h1>
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Sejahtera</p>
+                        <h1 class="text-sm font-bold text-white tracking-wide">KOPERASI</h1>
+                        <p class="text-[10px] text-blue-200 uppercase tracking-widest">Sejahtera</p>
                     </div>
                 </div>
 
                 <!-- Sidebar Navigation -->
                 <div class="flex-1 overflow-y-auto py-6 px-4">
-                    <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Menu Utama</p>
+                    <p class="px-4 text-xs font-bold text-blue-300/70 uppercase tracking-wider mb-4">Menu Utama</p>
                     <nav class="space-y-1">
                         @if(Auth::user()->role === 'admin')
-                        <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                             Admin Dashboard
                         </a>
                         
-                        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-6 mb-4">Manajemen Koperasi</p>
+                        <p class="px-4 text-xs font-bold text-blue-300/70 uppercase tracking-wider mt-6 mb-4">Manajemen Koperasi</p>
                         
                         <!-- Pegawai -->
-                        <a href="{{ route('admin.pegawai.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.pegawai.*') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.pegawai.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.pegawai.*') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                             Pegawai
                         </a>
 
-                        <a href="{{ route('admin.savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.savings.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.savings.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Verifikasi Simpanan
                         </a>
-                        <a href="{{ route('admin.loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.loans.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.loans.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                             Kelola Pinjaman
                         </a>
                         
-                        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-6 mb-4">Laporan & Master</p>
-                        <a href="{{ route('admin.users.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.users.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <p class="px-4 text-xs font-bold text-blue-300/70 uppercase tracking-wider mt-6 mb-4">Laporan & Master</p>
+                        <a href="{{ route('admin.users.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.users.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             Data Anggota
                         </a>
-                        <a href="{{ route('admin.rules.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.rules.*') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.rules.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.rules.*') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Master Paket
                         </a>
-                        <a href="{{ route('admin.reports.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.reports.*') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.reports.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.reports.*') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                             Laporan & Export
                         </a>
                         @else
-                        <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('dashboard') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('dashboard') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                             Dashboard
                         </a>
                         @endif
                         
                         @if(Auth::user()->role === 'member')
-                        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-6 mb-4">Layanan Nasabah</p>
+                        <p class="px-4 text-xs font-bold text-blue-300/70 uppercase tracking-wider mt-6 mb-4">Layanan Nasabah</p>
                         
-                        <a href="{{ route('savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('savings.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('savings.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Simpanan Online
                         </a>
 
-                        <a href="{{ route('loans.create') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('loans.create') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('loans.create') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('loans.create') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Pengajuan Pinjaman
                         </a>
 
-                        <a href="{{ route('loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('loans.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('loans.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                             Detail Pinjaman
                         </a>
                         
-                        <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('profile.edit') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('profile.edit') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Kelola Akun
                         </a>
                         @endif
 
                         @if(Auth::user()->role === 'admin')
-                        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-6 mb-4">Manajemen Koperasi</p>
+                        <p class="px-4 text-xs font-bold text-blue-300/70 uppercase tracking-wider mt-6 mb-4">Manajemen Koperasi</p>
                         
-                        <a href="{{ route('admin.savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.savings.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.savings.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.savings.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Verifikasi Simpanan
                         </a>
 
-                        <a href="{{ route('admin.loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.loans.index') ? 'bg-orange-50 text-orange-600 font-bold rounded-xl' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl transition' }}">
+                        <a href="{{ route('admin.loans.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.loans.index') ? 'bg-kop-green text-white font-bold rounded-xl shadow-lg shadow-kop-green/20' : 'text-blue-100/70 hover:text-white hover:bg-white/10 rounded-xl transition' }}">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                             Kelola Pinjaman
                         </a>
@@ -130,7 +133,7 @@
                     
                     <!-- Mobile Menu Button & Page Title -->
                     <div class="flex items-center">
-                        <button class="md:hidden text-gray-500 hover:text-gray-900 focus:outline-none mr-4">
+                        <button @click="sidebarOpen = true" class="md:hidden text-gray-500 hover:text-gray-900 focus:outline-none mr-4">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </button>
                         @isset($header)
@@ -143,7 +146,7 @@
                         
                         <!-- Notifications -->
                         <div class="relative" x-data="{ open: false }">
-                            <button @click="open = !open" @click.away="open = false" class="text-gray-400 hover:text-orange-500 transition relative">
+                            <button @click="open = !open" @click.away="open = false" class="text-gray-400 hover:text-kop-accent transition relative">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
                                 @if(Auth::user()->unreadNotifications->count() > 0)
                                     <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-[9px] font-bold leading-none text-white bg-red-500 rounded-full transform translate-x-1/4 -translate-y-1/4">
@@ -157,14 +160,14 @@
                                 <div class="px-4 py-3 border-b border-gray-50 bg-gray-50/50 flex justify-between items-center">
                                     <h3 class="font-bold text-gray-800 text-sm">Notifikasi</h3>
                                     @if(Auth::user()->unreadNotifications->count() > 0)
-                                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded font-bold">{{ Auth::user()->unreadNotifications->count() }} Baru</span>
+                                        <span class="text-xs bg-kop-light text-kop-green px-2 py-0.5 rounded font-bold">{{ Auth::user()->unreadNotifications->count() }} Baru</span>
                                     @endif
                                 </div>
                                 <div class="max-h-80 overflow-y-auto">
                                     @forelse(Auth::user()->unreadNotifications as $notification)
                                         <form action="{{ route('notifications.read', $notification->id) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="w-full text-left px-4 py-3 border-b border-gray-50 hover:bg-orange-50/50 transition">
+                                            <button type="submit" class="w-full text-left px-4 py-3 border-b border-gray-50 hover:bg-kop-light transition">
                                                 <p class="text-xs font-bold text-gray-800 mb-1">{{ $notification->data['title'] ?? 'Notifikasi Baru' }}</p>
                                                 <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed">{{ $notification->data['message'] ?? '' }}</p>
                                                 <p class="text-[10px] text-gray-400 mt-2">{{ $notification->created_at->diffForHumans() }}</p>
@@ -178,25 +181,25 @@
                                     @endforelse
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-50 bg-gray-50/50 text-center">
-                                    <a href="{{ route('notifications.index') }}" class="text-xs font-bold text-orange-500 hover:text-orange-600 transition">Lihat Semua Notifikasi</a>
+                                    <a href="{{ route('notifications.index') }}" class="text-xs font-bold text-kop-accent hover:text-kop-green transition">Lihat Semua Notifikasi</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="h-8 w-px bg-gray-200"></div>
+                        <div class="h-8 w-px bg-kop-light"></div>
 
                         <!-- Profile -->
                             <div class="flex items-center space-x-3 cursor-pointer">
                                 @if(Auth::user()->profile_photo)
                                     <img class="w-10 h-10 rounded-full object-cover shadow-md border border-gray-200" src="{{ asset('storage/' . Auth::user()->profile_photo) }}" alt="{{ Auth::user()->name }}">
                                 @else
-                                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 flex items-center justify-center text-white font-bold shadow-md">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-kop-green to-kop-greenDark flex items-center justify-center text-white font-bold shadow-md">
                                         {{ substr(Auth::user()->name, 0, 1) }}
                                     </div>
                                 @endif
                                 <div class="hidden md:block text-left">
                                 <p class="text-sm font-bold text-gray-800">{{ Auth::user()->name }}</p>
-                                <p class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">{{ Auth::user()->role }}</p>
+                                <p class="text-[10px] font-bold text-kop-accent uppercase tracking-wider">{{ Auth::user()->role }}</p>
                             </div>
                             
                             <!-- Logout Button -->

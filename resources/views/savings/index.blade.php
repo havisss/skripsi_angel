@@ -19,7 +19,7 @@
                 <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl overflow-hidden relative">
                     <!-- Decorative Background -->
                     <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white opacity-5 blur-2xl"></div>
-                    <div class="absolute bottom-0 left-0 -ml-8 -mb-8 w-24 h-24 rounded-full bg-orange-500 opacity-20 blur-xl"></div>
+                    <div class="absolute bottom-0 left-0 -ml-8 -mb-8 w-24 h-24 rounded-full bg-kop-green opacity-20 blur-xl"></div>
                     
                     <div class="p-6 relative z-10 text-white">
                         <p class="text-gray-400 text-sm font-medium mb-1 uppercase tracking-wider">Total Saldo Simpanan</p>
@@ -54,7 +54,7 @@
                 <!-- Form Setoran -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="px-6 py-5 border-b border-gray-50 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-orange-500">
+                        <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-kop-accent">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                         </div>
                         <h3 class="font-bold text-gray-800">Top Up Saldo</h3>
@@ -81,7 +81,7 @@
                             @csrf
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Jenis Simpanan</label>
-                                <select name="type" class="w-full text-sm border-gray-200 rounded-xl focus:ring-orange-500 focus:border-orange-500 bg-gray-50 hover:bg-white transition" required>
+                                <select name="type" class="w-full text-sm border-gray-200 rounded-xl focus:ring-kop-green focus:border-kop-green bg-gray-50 hover:bg-white transition" required>
                                     <option value="wajib">Simpanan Wajib</option>
                                     <option value="sukarela">Simpanan Sukarela</option>
                                 </select>
@@ -91,16 +91,16 @@
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Nominal Setoran (Min: Rp 10.000)</label>
                                 <div class="relative">
                                     <span class="absolute left-4 top-2.5 text-gray-500 font-semibold text-sm">Rp</span>
-                                    <input type="number" name="amount" min="10000" class="w-full text-sm pl-11 py-2.5 border-gray-200 rounded-xl focus:ring-orange-500 focus:border-orange-500 bg-gray-50 hover:bg-white transition" placeholder="0" required>
+                                    <input type="number" name="amount" min="10000" class="w-full text-sm pl-11 py-2.5 border-gray-200 rounded-xl focus:ring-kop-green focus:border-kop-green bg-gray-50 hover:bg-white transition" placeholder="0" required>
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Bukti Transfer</label>
-                                <input type="file" name="proof_of_payment" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100 border border-gray-200 rounded-xl bg-gray-50 cursor-pointer" required>
+                                <input type="file" name="proof_of_payment" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-kop-green hover:file:bg-orange-100 border border-gray-200 rounded-xl bg-gray-50 cursor-pointer" required>
                             </div>
 
-                            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-xl transition shadow-md shadow-orange-500/30 flex justify-center items-center gap-2 mt-2">
+                            <button type="submit" class="w-full bg-kop-green hover:bg-kop-greenDark text-white font-bold py-3 px-4 rounded-xl transition shadow-md shadow-kop-green/30 flex justify-center items-center gap-2 mt-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 Kirim Pengajuan
                             </button>
