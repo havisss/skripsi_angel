@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ config('app.name', 'Koperasi Sejahtera') }}</title>
+        <title>{{ config('app.name', 'Sarasehan Koperasi Mandiri') }}</title>
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -42,7 +42,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 <div class="flex space-x-6">
                     <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (021) 1234-5678</span>
-                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> info@koperasisejahtera.com</span>
+                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> info@sarasehankoperasimandiri.com</span>
                 </div>
                 <div>
                     <span>Terdaftar dan diawasi oleh Kementerian Koperasi dan UKM Republik Indonesia</span>
@@ -60,7 +60,7 @@
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold tracking-tight text-kop-blue leading-none">KSP SEJAHTERA</h1>
+                            <h1 class="text-xl font-bold tracking-tight text-kop-blue leading-none">SARASEHAN KOPERASI MANDIRI</h1>
                             <p class="text-[11px] text-gray-500 font-semibold leading-none mt-1">Koperasi Simpan Pinjam</p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-12 h-1 bg-kop-accent rounded-full"></div>
-                            <h3 class="text-kop-green font-bold tracking-widest uppercase text-sm">Tentang KSP Sejahtera</h3>
+                            <h3 class="text-kop-green font-bold tracking-widest uppercase text-sm">Tentang SARASEHAN KOPERASI MANDIRI</h3>
                         </div>
                         <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-kop-blue mb-6 leading-tight">
                             Pilar Ekonomi Kerakyatan yang <span class="text-transparent bg-clip-text bg-gradient-to-r from-kop-blue to-kop-green">Solid & Terpercaya</span>
@@ -281,7 +281,7 @@
                             <svg class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                         <h4 class="font-bold text-gray-900 text-xl mb-4">Simpanan Berjangka</h4>
-                        <p class="text-sm text-gray-500 mb-10 leading-relaxed px-2">Menyediakan layanan untuk menampung dana investasi anggota dalam usaha simpan pinjam yang dijalankan KSP Sejahtera</p>
+                        <p class="text-sm text-gray-500 mb-10 leading-relaxed px-2">Menyediakan layanan untuk menampung dana investasi anggota dalam usaha simpan pinjam yang dijalankan SARASEHAN KOPERASI MANDIRI</p>
                         <div class="mt-auto">
                             <svg class="w-7 h-7 text-gray-400 group-hover:text-kop-blue transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </div>
@@ -367,7 +367,7 @@
                             <ol class="list-decimal list-inside space-y-1.5">
                                 <li>Perhitungan di atas menggunakan metode bunga <span class="font-semibold">menurun (efektif)</span>.</li>
                                 <li>Tabel ini hanya <span class="font-semibold">simulasi atau estimasi</span>, tidak mengikat dan dapat berubah sewaktu-waktu mengikuti kebijakan bunga yang berlaku.</li>
-                                <li>Untuk perhitungan final dan pengajuan resmi, silakan hubungi atau kunjungi kantor KSP Sejahtera.</li>
+                                <li>Untuk perhitungan final dan pengajuan resmi, silakan hubungi atau kunjungi kantor SARASEHAN Koperasi Mandiri.</li>
                             </ol>
                         </div>
                     </div>
@@ -454,7 +454,7 @@
                                 <svg class="w-6 h-6 text-kop-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                             </div>
                             <div>
-                                <h2 class="text-xl font-bold tracking-tight text-white leading-none">KSP SEJAHTERA</h2>
+                                <h2 class="text-xl font-bold tracking-tight text-white leading-none">SARASEHAN KOPERASI MANDIRI</h2>
                                 <p class="text-[10px] uppercase text-gray-300 font-bold leading-none mt-1">Badan Hukum No: 123.456/BH/KDK</p>
                             </div>
                         </div>
@@ -476,7 +476,7 @@
                         <ul class="space-y-3 text-sm text-gray-300">
                             <li class="flex items-start">
                                 <svg class="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                Jl. Sudirman No. 123, Gedung Sejahtera Lt. 2, Jakarta Pusat, Indonesia
+                                Jl. Nusa Kambangan No. 123, Denpasar Barat, Denpasar, Bali, Indonesia
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -484,13 +484,13 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                info@koperasisejahtera.com
+                                info@sarasehankoperasimandiri.com
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="border-t border-gray-700/50 pt-8 text-center text-xs text-gray-400 flex flex-col md:flex-row justify-between items-center">
-                    <p>&copy; {{ date('Y') }} Koperasi Simpan Pinjam Sejahtera. Hak Cipta Dilindungi Undang-Undang.</p>
+                    <p>&copy; {{ date('Y') }} Koperasi Simpan Pinjam Sarasehan. Hak Cipta Dilindungi Undang-Undang.</p>
                     <div class="mt-4 md:mt-0 flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition">Facebook</a>
                         <a href="#" class="text-gray-400 hover:text-white transition">Instagram</a>
