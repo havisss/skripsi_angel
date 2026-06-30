@@ -339,9 +339,9 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Terdaftar & Diawasi Oleh</p>
                 <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                    <img src="{{ asset('build/assets/images/logo/koperasi.png') }}" alt="Logo Koperasi" class="h-16 md:h-20 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                    <img src="{{ asset('build/assets/images/logo/kemenkop.png') }}" alt="Logo Kemenkop" class="h-16 md:h-20 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                    <img src="{{ asset('build/assets/images/logo/diskopukm.png') }}" alt="Logo Diskopukm" class="h-16 md:h-20 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                    <img src="{{ asset('images/logo/koperasi.png') }}" alt="Logo Koperasi" class="h-24 md:h-32 object-contain">
+                    <img src="{{ asset('images/logo/kemenkop.png') }}" alt="Logo Kemenkop" class="h-24 md:h-32 object-contain">
+                    <img src="{{ asset('images/logo/diskopukm.png') }}" alt="Logo Diskopukm" class="h-24 md:h-32 object-contain">
                 </div>
             </div>
         </section>
