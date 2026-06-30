@@ -177,6 +177,9 @@
                                         </div>
                                     @endforelse
                                 </div>
+                                <div class="px-4 py-2 border-t border-gray-50 bg-gray-50/50 text-center">
+                                    <a href="{{ route('notifications.index') }}" class="text-xs font-bold text-orange-500 hover:text-orange-600 transition">Lihat Semua Notifikasi</a>
+                                </div>
                             </div>
                         </div>
 
